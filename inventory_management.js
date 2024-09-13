@@ -41,5 +41,21 @@ function updateStock (item, unitsSold) {
 
 }
 
-console.log (updateStock(inventory[0], 23))
+console.log (updateStock(inventory[0], 26))
 console.log (displayProductDetails("Basketball"))
+
+
+// Task 4: Create a Function to Check Low Stock Products
+
+function checkLowStock(inventory) {
+    inventory.forEach (item => {
+        if (item.quantity <= item.lowStockLevel)
+            console.log(`${item.name} has a low stock.`) //computes each item with low stock if quantity is less than the low stock level
+    })
+}
+
+console.log(checkLowStock(inventory))
+
+updateStock(inventory[3],7) //updates stock so hoop also is low stock
+
+console.log(checkLowStock(inventory)) //shows that both basketball and hoop are low stock
