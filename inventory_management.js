@@ -12,7 +12,8 @@ let inventory = [
 
 // Task 2: Create a Function to Display Product Details
 
-inventory.forEach (item => { item.stockStatus = (item.quantity > item.lowStockLevel) ? "In Stock" : "Low Stock"
+inventory.forEach (item => 
+    { item.stockStatus = (item.quantity <= item.lowStockLevel) ? "Low Stock" : "In Stock"
 }); // adds stockStatus to each item in the array
 
 console.log(inventory[0]) // shows the 1st list in the array with the addition of stockStatus
@@ -23,3 +24,22 @@ function displayProductDetails(name) {
 // this function will display all of the items in the list when the user types the item name
 
 console.log(displayProductDetails("Shoes")) // tests data, outputs correct list items associated with Shoes
+
+
+// Task 3: Create a Function to Update Product Stock After Sales
+
+function updateStock (item, unitsSold) {
+    item.quantity -= unitsSold;
+
+    if (item.quantity <= 0) {
+    return `${item.name} is out of stock.`} // shows the item is out of stock when 0
+
+    else if (item.quantity <= item.lowStockLevel) {
+    return `${item.name} is low on stock and has ${item.quantity} left.`} //shows item is low on stock when lower than lowstocklevel
+
+    else { return `${item.name} now has ${item.quantity} remaining.`}; //shows items quantity left when there it is not low on stock
+
+}
+
+console.log (updateStock(inventory[0], 23))
+console.log (displayProductDetails("Basketball"))
