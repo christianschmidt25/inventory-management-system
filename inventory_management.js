@@ -59,3 +59,14 @@ console.log(checkLowStock(inventory))
 updateStock(inventory[3],7) //updates stock so hoop also is low stock
 
 console.log(checkLowStock(inventory)) //shows that both basketball and hoop are low stock
+
+
+// Task 5: Create a Function to Calculate Total Inventory Value
+
+
+function calculateInventoryValue(inventory) {
+    return inventory.reduce((total, item) => { //brings the sum to one value
+        return total + (item.quantity * item.price); // the total is the item's quantity multiplied with the item's price
+    }, 0)
+}    
+console.log(`The inventory's total value is $${calculateInventoryValue(inventory)}.`) //outputs message with 3040 as the value
