@@ -70,3 +70,26 @@ function calculateInventoryValue(inventory) {
     }, 0)
 }    
 console.log(`The inventory's total value is $${calculateInventoryValue(inventory)}.`) //outputs message with 3040 as the value
+
+
+// Task 6: Create a Function to Process a Sale
+
+function processSale (itemName, unitsSold) {
+    let item = inventory.find(i => i.name === itemName);
+
+    if (!item) //if true (item does not exist), it will relay this message
+        {console.log(`Item does not exist.`)
+    }
+    else if (item.quantity <= 0) //when quantity is less than or equal to zero, it will say we are out of stock
+        {(console.log (`Sorry, ${item.name} is out of stock.`))
+    }
+    else if (item.quantity > unitsSold) //when the quantity is greater than the amount of items sold, the sale can be made
+        {(console.log (updateStock(item, unitsSold)))
+    }
+    else // if in system & not at zero yet but trying to sell more than current inventory (not meeting any of the above requirements) it will log this message
+        {(console.log (`We do not have enough ${item.name} to sell.`))
+}}
+
+console.log(processSale("Headband", 30)) //outputs the new value of 20 that headband has left
+console.log(processSale("Socks", 40)) //shows that socks do not exist here
+console.log(processSale("Hoop", 9)) //shows that we do not have 9 hoops to sell
