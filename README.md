@@ -1,2 +1,2 @@
-# Coding-Challenge-4
-This is the repository for the Coding Challenge 4 assignment in ISM 3232.
+# Inventory Management System
+This is an inventory management system application. We will be able to track inventory items in an array, and display item details before and after transactions are made.
